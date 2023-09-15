@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 //	func main(){
 //		var i int
@@ -81,8 +79,38 @@ func main() {
 	// var r rune = 'a'
 	// fmt.Printf("%v, %T\n", r, r)
 
-	const myConst int = 42
+	//const myConst int = 42
 	// myConst = 21 // ERROR
 	//const myConst float64 = math.Sin(90)
-	fmt.Printf("%v, %T\n", myConst, myConst)
+	//fmt.Printf("%v, %T\n", myConst, myConst)
+
+	//! constants
+
+	// const (
+	// 	a = iota
+	// 	b
+	// 	c
+	// )
+
+	// const (
+	// 	a2 = iota
+	// )
+
+	// fmt.Printf("%v\n", a)
+	// fmt.Printf("%v\n", b)
+	// fmt.Printf("%v\n", c)
+	// fmt.Printf("%v\n", a2)
+
+	//* enumerated constants
+	//? can be bit shifted
+	const (
+		_ = iota + 5
+		catSpecialist
+		dogSpecialist
+		snakeSpecialist
+	)
+
+	var specialistType int = catSpecialist
+	fmt.Printf("%v->%v\n", specialistType == catSpecialist, catSpecialist)
+	fmt.Printf("%v\n", specialistType == dogSpecialist)
 }
