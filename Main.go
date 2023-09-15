@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 //	func main(){
 //		var i int
@@ -113,4 +115,37 @@ func main() {
 	var specialistType int = catSpecialist
 	fmt.Printf("%v->%v\n", specialistType == catSpecialist, catSpecialist)
 	fmt.Printf("%v\n", specialistType == dogSpecialist)
+
+	//* bit shiftings on enum cosnts
+	const (
+		_  = iota // ignore the first value by assigning a blank identifier
+		KB = 1 << (10 * iota)
+		MB
+		GB
+		TB
+		PB
+		EB
+		ZB
+		YB
+	)
+
+	fileSize := 4000000000.
+	fmt.Printf("%.2f GB\n", fileSize/GB)
+
+	const (
+		isAdmin = 1 << iota
+		isHeadquaters
+		canSeeFinancials
+
+		canSeeAfrica
+		canSeeAsia
+		canSeeEurope
+		canSeeNorthAmerica
+		canSeeSouthAmerica
+	)
+
+	var role byte = isAdmin | canSeeFinancials | canSeeEurope
+	fmt.Printf("%b\n", role)
+	fmt.Printf("Is Admin? %v\n", isAdmin&role == isAdmin)
+	fmt.Printf("Is HQ? %v\n", isAdmin&role == isHeadquaters)
 }
